@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.balagi.balagiratingservice.model.Rating;
+import com.balagi.balagiratingservice.model.UserRating;
 
 @RestController
 @RequestMapping("/rating")
@@ -19,11 +20,15 @@ public class RatingServiceControler {
 		return new Rating("MovId", "4");
 	}
 
-	@GetMapping("/user/{iserId}")
-	public List<Rating> getUserRating(@PathVariable("movieId") String movieId) {
+	@GetMapping("/user/{userId}")
+	public UserRating getUserRating(@PathVariable("userId") String userId) {
+		System.out.println("getUserRating called");
 		List<Rating> ratings = Arrays.asList(new Rating("Mov1", "2"), new Rating("Mov2", "3"), new Rating("Mov3", "4"),
 				new Rating("Mov4", "5"));
-		return ratings;
+		UserRating userRating = new UserRating();
+		userRating.setRatings(ratings);
+		System.out.println(userRating.toString());
+		return userRating;
 	}
 
 }

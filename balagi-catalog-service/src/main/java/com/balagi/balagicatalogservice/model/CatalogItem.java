@@ -1,9 +1,16 @@
 package com.balagi.balagicatalogservice.model;
 
+import java.io.Serializable;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.Data;
 
 @Data
-public class CatalogItem {
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class CatalogItem implements Serializable{
+	
+	private static final long serialVersionUID = 6947988820912290894L;
 	
 	private String name;
 	private String desc;
@@ -17,7 +24,6 @@ public class CatalogItem {
 
 	public CatalogItem() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	
 }

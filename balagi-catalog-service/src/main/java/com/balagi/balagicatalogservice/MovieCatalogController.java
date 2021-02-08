@@ -5,6 +5,7 @@ import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
@@ -26,24 +27,25 @@ public class MovieCatalogController {
 	WebClient.Builder webClientBuilder;
 
 	@GetMapping("/{userId}")
-	public List<CatalogItem> getCatalog(String userId) {
+	public List<CatalogItem> getCatalog(@PathVariable("userId") String userId) {
 
-		UserRating userRatings= webClientBuilder.build()
-				.get()
-				.uri("http://localhost:8883/ratings/user/user1")
-				.retrieve()
-				.bodyToMono(UserRating.class)
-				.block();
-		List<Rating> ratings =userRatings.getRatings();
+		try {
+			UserRating userRatings = restTemplate.getForObject("http://balagi-rating-service/rating/user/User1",
+					UserRating.class);
+			List<Rating> ratings = userRatings.getRatings();
 
-		return ratings.stream().map(rating -> {
-			// Movie movie = restTemplate.getForObject("http://localhost:8882/movies/Mov1",
-			// Movie.class);
-			Movie movie = webClientBuilder.build().get().uri("http://localhost:8882/movies/Mov1").retrieve()
-					.bodyToMono(Movie.class).block();
+			return ratings.stream().map(rating -> {
+				// Movie movie = restTemplate.getForObject("http://localhost:8882/movies/Mov1",
+				// Movie.class);
+				Movie movie = webClientBuilder.build().get().uri("http://balagi-info-service/movies/Mov1").retrieve()
+						.bodyToMono(Movie.class).block();
 
-			return new CatalogItem(movie.getName(), "DescSample", rating.getRating());
-		}).collect(Collectors.toList());
+				return new CatalogItem(movie.getName(), "DescSample", rating.getRating());
+			}).collect(Collectors.toList());
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
 
 		// return Collections.singletonList(new CatalogItem("Transformers", "Test", 4));
 	}
