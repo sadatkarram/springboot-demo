@@ -1,13 +1,13 @@
-package com.balagi.ratinginfoservice;
+package com.balagi.balagiratingservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class RatingInfoServiceApplication {
-
+public class BalagiRatingServiceApplication {
+	
 	public static void main(String[] args) {
-		SpringApplication.run(RatingInfoServiceApplication.class, args);
+		SpringApplication.run(BalagiRatingServiceApplication.class, args);
 	}
 
 }
