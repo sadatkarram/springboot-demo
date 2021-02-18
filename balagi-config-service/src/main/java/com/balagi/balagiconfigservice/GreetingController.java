@@ -13,33 +13,30 @@ public class GreetingController {
 
 	@Value("${my.greeting}")
 	private String greetingMsg;
-
-	@Value("${my.default.value : DEFAULT-VALUE-CONTROLLER }")
-	private String defaultValue;
-
-	@Value("${my.list.value}")
-	private List<String> listValue;
+	/*
+	 * @Value("${my.default.value : DEFAULT-VALUE-CONTROLLER }") private String
+	 * defaultValue;
+	 * 
+	 * @Value("${my.list.value}") private List<String> listValue;
+	 */
 
 	/*
 	 * @Value("#{${my.map.value}}") private Map<String, Integer> mapValue;
 	 */
-
-	@Autowired
-	TestDataSource testDataSource;
-
+	/*
+	 * @Autowired TestDataSource testDataSource;
+	 */
 	@Autowired
 	private Environment env;
 
 	@GetMapping("/greeting")
 	public String greeting() {
-		return greetingMsg + "; Static Message: " + defaultValue + "; List from properties: " + listValue
-				+ " configuration Propeties : " + testDataSource.toString();
+		return greetingMsg;
 	}
 
-	@GetMapping("/envdetails")
-	public String envdetails() {
-		return env.getProperty("spring.profiles.active");
-		//return env.toString();
-	}
+	/*
+	 * @GetMapping("/envdetails") public String envdetails() { return
+	 * env.getProperty("spring.profiles.active"); //return env.toString(); }
+	 */
 
 }
