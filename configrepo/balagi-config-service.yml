@@ -1,7 +1,7 @@
-spring.application.name: balagi-config-server
+spring.application.name: balagi-config-service
 
 my:
-   greeting: balagi-config-server_GREETING
+   greeting: balagi-config-server_GREETING-1
    list:
       value: One,Two,Three
 my.map.value: {'key1':1,'key2':2,'key3':3}
@@ -20,4 +20,4 @@ management.endpoint.web.exposure.include: "*"
 management.endpoint.jmx.include: true
 management.endpoint.env.include: true
 
-spring.profiles.active: balagi-config-server-test
+spring.profiles.active: balagi-config-service-test

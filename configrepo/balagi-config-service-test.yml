@@ -1,4 +1,4 @@
-spring.application.name: balagi-config-server
+spring.application.name: balagi-config-service
 
 my:
    greeting: balagi-config-server-test_GREETING
@@ -14,8 +14,3 @@ db:
    driverclassname: com.mysql.jdbc.Driver
    username: root
    password: root
-
-
-management.endpoint.web.exposure.include: "*"
-management.endpoint.jmx.include: true
-management.endpoint.env.include: true
