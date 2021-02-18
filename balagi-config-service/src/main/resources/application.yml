@@ -2,3 +2,4 @@ spring.application.name: balagi-config-service
 spring.cloud.config.uri: http://localhost:8888
 
 my.greeting: I am in JAR
+management.endpoints.web.exposure.include: refresh
