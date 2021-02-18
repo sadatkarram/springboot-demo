@@ -17,5 +17,6 @@ db:
 management.endpoint.web.exposure.include: "*"
 management.endpoint.jmx.include: true
 management.endpoint.env.include: true
+management.endpoints.web.exposure.include: refresh
 
 spring.profiles.active: test
