@@ -1,0 +1,23 @@
+spring.application.name: balagi-config-service
+
+my:
+   greeting: Hello Ram
+   list:
+      value: One,Two,Three
+my.map.value: {'key1':1,'key2':2,'key3':3}
+app:
+   name: My app
+   description: Welcome to ${app.name}
+
+db:
+   connectionurl: jdbc:mysql://localhost:3306/springbootdb
+   driverclassname: com.mysql.jdbc.Driver
+   username: root
+   password: root
+
+
+management.endpoint.web.exposure.include: "*"
+management.endpoint.jmx.include: true
+management.endpoint.env.include: true
+
+spring.profiles.active: test
