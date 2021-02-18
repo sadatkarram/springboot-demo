@@ -1,5 +1,3 @@
-spring.application.name: balagi-config-service
-
 my:
    greeting: balagi-config-server-test_GREETING
    list:
