@@ -1,5 +1,5 @@
 my:
-   greeting: balagi-config-server_GREETING-3
+   greeting: balagi-config-server_GREETING-4
    list:
       value: One,Two,Three
 my.map.value: {'key1':1,'key2':2,'key3':3}
