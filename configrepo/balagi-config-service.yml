@@ -1,5 +1,7 @@
+spring.application.name: balagi-config-server
+
 my:
-   greeting: application-GREETING
+   greeting: Mbalagi-config-server_GREETING
    list:
       value: One,Two,Three
 my.map.value: {'key1':1,'key2':2,'key3':3}
@@ -12,3 +14,10 @@ db:
    driverclassname: com.mysql.jdbc.Driver
    username: root
    password: root
+
+
+management.endpoint.web.exposure.include: "*"
+management.endpoint.jmx.include: true
+management.endpoint.env.include: true
+
+spring.profiles.active: test
